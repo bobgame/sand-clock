@@ -5,8 +5,13 @@ export interface SandClockPropsStyle {
   currentTime: number;
   maxTime: number;
 }
+export interface SandClockPropsAddClass {
+  topToBottom: boolean,
+  rotateStart: boolean,
+}
 export interface SandClockProps {
-  clockStatus: boolean;
+  clockLine?: boolean;
+  addClasses: SandClockPropsAddClass;
   propStyle: SandClockPropsStyle;
 }
 export interface ColorWidgetProp {

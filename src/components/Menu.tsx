@@ -26,23 +26,23 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: "Sand Clock",
+    title: "倒计时",
     url: "/page/sand-clock",
     iosIcon: timerOutline,
     mdIcon: timerOutline,
   },
   {
-    title: "Settings",
+    title: "设置",
     url: "/page/settings",
     iosIcon: settingsOutline,
     mdIcon: settingsOutline,
   },
-  {
-    title: "About",
-    url: "/page/about",
-    iosIcon: informationCircleOutline,
-    mdIcon: informationCircleOutline,
-  },
+  // {
+  //   title: "About",
+  //   url: "/page/about",
+  //   iosIcon: informationCircleOutline,
+  //   mdIcon: informationCircleOutline,
+  // },
 ];
 
 const Menu: React.FC = () => {
@@ -52,7 +52,7 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Sand Clock</IonListHeader>
+          <IonListHeader>Winter倒计时</IonListHeader>
           <IonNote>Come on!</IonNote>
           {appPages.map((appPage, index) => {
             return (

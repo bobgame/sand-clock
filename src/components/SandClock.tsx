@@ -6,13 +6,17 @@ export const SandClock = (props: SandClockProps) => {
   const classes = createUseStyles(styles)(props.propStyle);
 
   return (
-    <div className={classes.sandClock}>
+    <div className={`
+      ${classes.sandClock} 
+      ${props.addClasses.topToBottom ? classes.topToBottom : ''} 
+      ${props.addClasses.rotateStart ? classes.rotateStart : ''} 
+    `}>
       <div className={classes.sandTop}></div>
-      {props.clockStatus && <div className={classes.sandLine}></div>}
+      {props.clockLine && <div className={classes.sandLine}></div>}
       <div className={classes.sandBottom}></div>
       <div className={classes.sandClockTop}></div>
       <svg
-        style={{ width: 200, zIndex: 9 }}
+        style={{ width: 200, zIndex: 9, position: 'relative' }}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 788 1368"
       >

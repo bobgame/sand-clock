@@ -2,7 +2,6 @@
   "name": "ionic_sand_clock",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://bobgame.github.io/sand-clock",
   "dependencies": {
     "@capacitor/android": "3.6.0",
     "@capacitor/app": "1.1.1",

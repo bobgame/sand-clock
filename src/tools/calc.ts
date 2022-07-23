@@ -8,8 +8,8 @@ export const calcTimeText = (time: number) => {
     m = Math.floor(time / 60);
     s -= m * 60;
   }
-  const mText = m > 9 ? `${m}` : `0${m}`;
-  const sText = s > 9 ? `${Math.floor(s)}` : `0${Math.floor(s)}`;
+  const mText = m >= 10 ? `${m}` : `0${m}`;
+  const sText = s >= 10 ? `${Math.floor(s)}` : `0${Math.floor(s)}`;
   return `${mText}:${sText}`;
 };
 

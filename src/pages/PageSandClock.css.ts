@@ -4,6 +4,7 @@ export const styles = {
   sandClockContainer: {
     extend: [full, psa0],
     backgroundColor: "#eee",
+    color: '#333',
   },
   sandClockContent: {
     extend: [flexCenter],

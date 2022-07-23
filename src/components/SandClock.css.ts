@@ -18,16 +18,26 @@ export const styles = {
     flexDirection: "column",
     alignItems: "center",
   },
+  topToBottom: {
+    transform: 'rotate(180deg)',
+  },
+  rotateStart: {
+    transform: 'rotate(360deg)',
+    transition: 'all .5s'
+  },
   sandTop: (props: SandClockPropsStyle) => ({
     extend: [psa],
+    zIndex: 1,
     width: 190,
     height: 166 - (166 * props.currentTime / props.maxTime),
     top: $topHeight + (166 * props.currentTime / props.maxTime),
-    left: 10,
+    left: '50%',
+    marginLeft: -95,
     backgroundColor: props.sandColor,
   }),
   sandLine: (props: SandClockPropsStyle) => ({
     extend: [psa],
+    zIndex: 1,
     width: 2,
     height: 165,
     top: $topHeight + 182,
@@ -37,13 +47,17 @@ export const styles = {
   }),
   sandBottom: (props: SandClockPropsStyle) => ({
     extend: [psa],
+    zIndex: 1,
     width: 190,
-    height: 165 * props.currentTime / props.maxTime,
-    top: $topHeight + 182 + (165 - 165 * props.currentTime / props.maxTime),
-    left: 10,
+    height: 166 * props.currentTime / props.maxTime,
+    top: $topHeight + 182 + (166 - 166 * props.currentTime / props.maxTime),
+    left: '50%',
+    marginLeft: -95,
     backgroundColor: props.sandColor,
   }),
   sandClockTop: (props: any) => ({
+    position: 'relative',
+    zIndex: 2,
     backgroundColor: props.lineColor,
     width: 210,
     height: $topHeight,

@@ -16,9 +16,9 @@ import { styles } from "./PageSettings.css";
 export const PageSettings: React.FC = (props) => {
   const classes = createUseStyles(styles)();
 
-  const [lineColor, setLineColor] = useState('#aaa')
-  const [bgColor, setBgColor] = useState('#eee')
-  const [sandColor, setSandColor] = useState('#ccc')
+  const [lineColor, setLineColor] = useState("#666");
+  const [bgColor, setBgColor] = useState("#eee");
+  const [sandColor, setSandColor] = useState("#44cef6");
 
   useEffect(() => {
     const cacheLineColor = localStorage.getItem(dbKey.lineColor)
@@ -57,7 +57,7 @@ export const PageSettings: React.FC = (props) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Settings</IonTitle>
+          <IonTitle>设置</IonTitle>
         </IonToolbar>
       </IonHeader>
       <div className={classes.sandClockContent}>
@@ -69,7 +69,11 @@ export const PageSettings: React.FC = (props) => {
                 borderColor: bgColor,
               }}>
               <SandClock
-                clockStatus={true}
+                clockLine={true}
+                addClasses={{
+                  topToBottom: false,
+                  rotateStart: false,
+                }}
                 propStyle={{
                   lineColor,
                   bgColor,
