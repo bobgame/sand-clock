@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/sand-clock/static/css/main.a01ee468.css",
-    "main.js": "/sand-clock/static/js/main.a0dc6d46.js",
+    "main.js": "/sand-clock/static/js/main.b16b18ba.js",
     "static/js/304.45d7656e.chunk.js": "/sand-clock/static/js/304.45d7656e.chunk.js",
     "static/js/770.0fd76297.chunk.js": "/sand-clock/static/js/770.0fd76297.chunk.js",
     "static/js/261.d1a2a93c.chunk.js": "/sand-clock/static/js/261.d1a2a93c.chunk.js",
@@ -17,6 +17,6 @@
   },
   "entrypoints": [
     "static/css/main.a01ee468.css",
-    "static/js/main.a0dc6d46.js"
+    "static/js/main.b16b18ba.js"
   ]
 }

@@ -170,7 +170,7 @@ const PageSandClock: React.FC = (props) => {
             </div>
           )}
           <div style={{ textAlign: "center", marginBottom: 10 }}>
-            <IonButton onClick={openPicker}>开始倒计时7</IonButton>
+            <IonButton onClick={openPicker}>开始倒计时8</IonButton>
           </div>
           <div className="time" hidden>
             {currentTime}
