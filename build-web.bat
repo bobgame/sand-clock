@@ -1,2 +1,3 @@
 call npm run build
-xcopy .\build .\docs /s /e /y
+rd /s /q .\docs\
+xcopy .\build .\docs\ /s /e /y
