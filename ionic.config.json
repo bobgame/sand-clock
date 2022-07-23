@@ -1,0 +1,7 @@
+{
+  "name": "ionic_sand_clock",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
