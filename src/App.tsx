@@ -1,5 +1,5 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonReactHashRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import PageSandClock from './pages/PageSandClock';
@@ -10,7 +10,7 @@ setupIonicReact();
 const App: React.FC = () => {
   return (
     <IonApp>
-      <IonReactRouter>
+      <IonReactHashRouter basename={process.env.PUBLIC_URL}>
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
@@ -26,7 +26,7 @@ const App: React.FC = () => {
             <Redirect to='/' />
           </IonRouterOutlet>
         </IonSplitPane>
-      </IonReactRouter>
+      </IonReactHashRouter>
     </IonApp>
   );
 };
