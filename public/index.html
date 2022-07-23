@@ -16,6 +16,7 @@
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
   <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/assets/icon/favicon.png" />
+  <script src="%PUBLIC_URL%/assets/NoSleep.min.js"></script>
 
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -26,8 +27,8 @@
 <body>
   <div id="root"></div>
 
-  <script src="./NoSleep.min.js"></script>
   <script>
+    var noSleep = new NoSleep();
     var wakeLockEnabled = false;
     // var toggleEl = document.querySelector("#toggle");
     document.addEventListener('click', function () {
