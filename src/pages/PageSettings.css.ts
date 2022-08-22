@@ -33,7 +33,7 @@ export const styles = {
   colorContent: {
     width: "100%",
     height: "100%",
-    paddingTop: '5%',
+    paddingTop: '2%',
     paddingRight: '5%',
   },
   lineColorContent: {
@@ -53,7 +53,7 @@ export const styles = {
     flexWrap: 'wrap'
   },
   colorItem: {
-    width: '24%',
+    width: '23%',
     height: 40,
     margin: 5,
     border: '2px solid #fff',

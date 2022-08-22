@@ -6,6 +6,7 @@ import {
   IonTitle,
   IonButton,
   useIonPicker,
+  IonIcon,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
@@ -17,6 +18,8 @@ import { styles } from "./PageSandClock.css";
 import AudioPlayer from "react-h5-audio-player";
 import { useScreenWakeLock } from 'screen-wake-lock';
 import { customTimes } from "../data/custom-times";
+import { settingsOutline } from "ionicons/icons";
+import { useHistory } from "react-router";
 
 const audioNames = ["winter-1", "bob-1", "often-1", "waipo-1"];
 
@@ -33,6 +36,7 @@ let clockTimer: any;
 const PageSandClock: React.FC = (props) => {
   const classes = createUseStyles(styles)();
   const [present] = useIonPicker();
+  const history = useHistory();
 
   const [rotateStart, setRotateStart] = useState(false);
   const [stopButtonEnabled, setStopButtonEnabled] = useState(false);
@@ -42,8 +46,9 @@ const PageSandClock: React.FC = (props) => {
   const [clockLine, setClockLine] = useState(false);
   const [maxTime, setMaxTime] = useState(300);
   const [currentTime, setCurrentTime] = useState(0);
-  const [currentTimeText, setCurrentTimeText] = useState("00:00");
-  const [maxTimeText, setMaxTimeText] = useState("00:00");
+  // const [currentTimeText, setCurrentTimeText] = useState("00:00");
+  // const [maxTimeText, setMaxTimeText] = useState("00:00");
+  const [leftTimeText, setLeftTimeText] = useState("00:00");
 
   const intervalTime = 50;
 
@@ -77,13 +82,17 @@ const PageSandClock: React.FC = (props) => {
     };
   }, []);
 
-  useEffect(() => {
-    setCurrentTimeText(calcTimeText(currentTime));
-  }, [currentTime]);
+  // useEffect(() => {
+  //   setCurrentTimeText(calcTimeText(currentTime));
+  // }, [currentTime]);
+
+  // useEffect(() => {
+  //   setMaxTimeText(calcTimeText(maxTime));
+  // }, [maxTime]);
 
   useEffect(() => {
-    setMaxTimeText(calcTimeText(maxTime));
-  }, [maxTime]);
+    setLeftTimeText(calcTimeText(maxTime - currentTime + 1 - intervalTime / 1000));
+  }, [currentTime, maxTime]);
 
   const downTime = () => {
 
@@ -165,11 +174,11 @@ const PageSandClock: React.FC = (props) => {
       showBackdrop: true,
       buttons: [
         {
-          text: "Cancel",
+          text: "取消 X",
           role: "cancel",
         },
         {
-          text: "Confirm",
+          text: "确定 √",
           handler: (value) => {
             setMaxTime(
               value.hh.value * 3600 + value.mm.value * 60 + value.ss.value
@@ -201,6 +210,15 @@ const PageSandClock: React.FC = (props) => {
             <IonMenuButton />
           </IonButtons>
           <IonTitle>Winter倒计时</IonTitle>
+          <IonButtons slot="end"
+            onClick={() => history.push("/page/settings")}
+            style={{ padding: '10px' }}>
+            <IonIcon
+              slot="end"
+              ios={settingsOutline}
+              md={settingsOutline}
+            />
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <div
@@ -213,12 +231,12 @@ const PageSandClock: React.FC = (props) => {
               <Player audioName={audioName} />
             </div>
           )}
-          <div style={{ textAlign: "center", margin: 10, color: '#666' }}>
+          {/* <div style={{ textAlign: "center", margin: 10, color: '#666' }}>
             {currentTimeText} / {maxTimeText}
           </div>
           <div className="time" hidden>
             <button onClick={retry}>retry</button>
-          </div>
+          </div> */}
           <div>
             <SandClock
               clockLine={clockLine}
@@ -238,21 +256,38 @@ const PageSandClock: React.FC = (props) => {
 
           <div style={{ textAlign: "center", marginTop: 20, marginBottom: 10 }}>
             {!clockStatus && <IonButton style={{ margin: 10 }} size="large" onClick={customStartClock}>开始倒计时</IonButton>}
-            {clockStatus && <IonButton disabled={!stopButtonEnabled} style={{ margin: 10 }} size="large" onClick={customStopClock}>停止倒计时</IonButton>}
-            <IonButton disabled={clockStatus} style={{ margin: 10, marginLeft: 30 }} size="large" onClick={openPicker}>自定义</IonButton>
+            {clockStatus && <IonButton disabled={!stopButtonEnabled} style={{ margin: 10, width: '60%', }} size="large" onClick={customStopClock}>停止倒计时</IonButton>}
+            {!clockStatus && <IonButton disabled={clockStatus} style={{ margin: 10, marginLeft: 30 }} size="large" onClick={openPicker}>自定义</IonButton>}
           </div>
+
+
 
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             padding: '10px 5%',
+            position: 'relative',
           }}>
+            <div style={{
+              position: 'absolute',
+              left: '50%',
+              top: 20,
+              textAlign: "center",
+              color: '#666',
+              width: 300,
+              marginLeft: -150,
+              fontSize: 60,
+              visibility: clockStatus ? 'visible' : 'hidden'
+            }}>{leftTimeText}</div>
             {
               customTimes.map(ct => {
                 return <IonButton
-                  disabled={clockStatus}
-                  style={{ margin: '2%', width: '26%', }}
+                  style={{
+                    margin: '2%',
+                    width: '26%',
+                    visibility: !clockStatus ? 'visible' : 'hidden'
+                  }}
                   size="large"
                   fill="outline"
                   key={`custom-time-key-${ct.time}`}

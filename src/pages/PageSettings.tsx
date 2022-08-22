@@ -4,9 +4,12 @@ import {
   IonButtons,
   IonMenuButton,
   IonTitle,
+  IonIcon,
 } from "@ionic/react";
+import { timerOutline } from "ionicons/icons";
 import { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
+import { useHistory } from "react-router";
 import { SandClock } from "../components/SandClock";
 import { ColorWidget } from "../components/ui/color/ColorWidget";
 import { bgColors, lineColors, sandColors } from "../data/colors";
@@ -15,6 +18,7 @@ import { styles } from "./PageSettings.css";
 
 export const PageSettings: React.FC = (props) => {
   const classes = createUseStyles(styles)();
+  const history = useHistory();
 
   const [lineColor, setLineColor] = useState("#666");
   const [bgColor, setBgColor] = useState("#eee");
@@ -58,6 +62,15 @@ export const PageSettings: React.FC = (props) => {
             <IonMenuButton />
           </IonButtons>
           <IonTitle>设置</IonTitle>
+          <IonButtons slot="end"
+            onClick={() => history.push("/page/sand-clock")}
+            style={{ padding: '10px' }}>
+            <IonIcon
+              slot="end"
+              ios={timerOutline}
+              md={timerOutline}
+            />
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <div className={classes.sandClockContent}>
@@ -86,7 +99,7 @@ export const PageSettings: React.FC = (props) => {
           </div>
           <div className={classes.colorContent}>
             <div className={classes.lineColorContent}>
-              <h3>框架颜色</h3>
+              <h4>框架颜色</h4>
               <div className={classes.colorList}>
                 {lineColors.map((c, i) => {
                   return (
@@ -99,7 +112,7 @@ export const PageSettings: React.FC = (props) => {
               </div>
             </div>
             <div className={classes.bgColorContent}>
-              <h3>背景颜色</h3>
+              <h4>背景颜色</h4>
               <div className={classes.colorList}>
                 {bgColors.map((c, i) => {
                   return (
@@ -112,7 +125,7 @@ export const PageSettings: React.FC = (props) => {
               </div>
             </div>
             <div className={classes.sandColorContent}>
-              <h3>沙子颜色</h3>
+              <h4>沙子颜色</h4>
               <div className={classes.colorList}>
                 {sandColors.map((c, i) => {
                   return (
