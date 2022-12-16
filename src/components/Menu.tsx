@@ -37,12 +37,12 @@ const appPages: AppPage[] = [
     iosIcon: settingsOutline,
     mdIcon: settingsOutline,
   },
-  // {
-  //   title: "About",
-  //   url: "/page/about",
-  //   iosIcon: informationCircleOutline,
-  //   mdIcon: informationCircleOutline,
-  // },
+  {
+    title: "关于",
+    url: "/page/about",
+    iosIcon: informationCircleOutline,
+    mdIcon: informationCircleOutline,
+  },
 ];
 
 const Menu: React.FC = () => {
@@ -52,8 +52,8 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Winter倒计时</IonListHeader>
-          <IonNote>Come on!</IonNote>
+          <IonListHeader>倒计时-沙漏</IonListHeader>
+          <IonNote>加油!</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

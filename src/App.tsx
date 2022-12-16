@@ -2,6 +2,7 @@ import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/r
 import { IonReactHashRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Menu from './components/Menu';
+import { PageAbout } from './pages/PageAbout';
 import PageSandClock from './pages/PageSandClock';
 import { PageSettings } from './pages/PageSettings';
 
@@ -22,6 +23,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/page/settings" exact={true}>
               <PageSettings />
+            </Route>
+            <Route path="/page/about" exact={true}>
+              <PageAbout />
             </Route>
             <Redirect to='/' />
           </IonRouterOutlet>

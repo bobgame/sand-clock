@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Winter倒计时</string>
-    <string name="title_activity_main">Winter倒计时</string>
+    <string name="app_name">倒计时-沙漏</string>
+    <string name="title_activity_main">倒计时-沙漏</string>
     <string name="package_name">com.llbnew.simplesandlockll</string>
     <string name="custom_url_scheme">com.llbnew.simplesandlockll</string>
 </resources>

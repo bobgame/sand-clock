@@ -21,7 +21,7 @@ import { customTimes } from "../data/custom-times";
 import { settingsOutline } from "ionicons/icons";
 import { useHistory } from "react-router";
 
-const audioNames = ["winter-1", "bob-1", "often-1", "waipo-1"];
+const audioNames = ["winter-1"];
 
 const Player = (props: any) => (
   <AudioPlayer
@@ -209,7 +209,7 @@ const PageSandClock: React.FC = (props) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Winter倒计时</IonTitle>
+          <IonTitle>倒计时-沙漏</IonTitle>
           <IonButtons slot="end"
             onClick={() => history.push("/page/settings")}
             style={{ padding: '10px' }}>
