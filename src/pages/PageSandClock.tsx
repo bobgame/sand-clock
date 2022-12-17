@@ -63,9 +63,9 @@ const PageSandClock: React.FC = (props) => {
 
   useScreenWakeLock()
 
-  useEffect(()=>{
-    // i18n.changeLanguage('en');
-  },[])
+  // useEffect(()=>{
+  //   // i18n.changeLanguage('en');
+  // },[])
 
   useEffect(() => {
     const cacheLineColor = localStorage.getItem(dbKey.lineColor);
