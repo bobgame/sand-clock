@@ -17,6 +17,7 @@ import {
   timerOutline,
 } from "ionicons/icons";
 import "./Menu.css";
+import { useTranslation } from "react-i18next";
 interface AppPage {
   url: string;
   iosIcon: string;
@@ -24,36 +25,37 @@ interface AppPage {
   title: string;
 }
 
-const appPages: AppPage[] = [
-  {
-    title: "倒计时",
-    url: "/page/sand-clock",
-    iosIcon: timerOutline,
-    mdIcon: timerOutline,
-  },
-  {
-    title: "设置",
-    url: "/page/settings",
-    iosIcon: settingsOutline,
-    mdIcon: settingsOutline,
-  },
-  {
-    title: "关于",
-    url: "/page/about",
-    iosIcon: informationCircleOutline,
-    mdIcon: informationCircleOutline,
-  },
-];
-
 const Menu: React.FC = () => {
   const location = useLocation();
+  const {t} = useTranslation()
+
+  const appPages: AppPage[] = [
+    {
+      title: t('menu.countdown'),
+      url: "/page/sand-clock",
+      iosIcon: timerOutline,
+      mdIcon: timerOutline,
+    },
+    {
+      title: t('menu.settings'),
+      url: "/page/settings",
+      iosIcon: settingsOutline,
+      mdIcon: settingsOutline,
+    },
+    {
+      title: t('menu.about'),
+      url: "/page/about",
+      iosIcon: informationCircleOutline,
+      mdIcon: informationCircleOutline,
+    },
+  ];
 
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>倒计时-沙漏</IonListHeader>
-          <IonNote>加油!</IonNote>
+          <IonListHeader>{t('title')}</IonListHeader>
+          <IonNote>{t('menu.note')}</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>

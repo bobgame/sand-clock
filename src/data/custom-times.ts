@@ -1,11 +1,15 @@
+import i18next from "../i18n";
+
+const minText = i18next.t('sandClock.minute')
+
 export const customTimes = [
   // {time: 60, text: '01分钟'},
-  {time: 120, text: '2 分钟'},
-  {time: 180, text: '3 分钟'},
-  {time: 300, text: '5 分钟'},
-  {time: 600, text: '10分钟'},
-  {time: 900, text: '15分钟'},
-  {time: 1200, text: '20分钟'},
+  {time: 120, text: '2 ' + minText},
+  {time: 180, text: '3 ' + minText},
+  {time: 300, text: '5 ' + minText},
+  {time: 600, text: '10 ' + minText},
+  {time: 900, text: '15 ' + minText},
+  {time: 1200, text: '20 ' + minText},
 ]
 // export const customTimes = [
 //   {time: 60, text: '00:10'},

@@ -1,9 +1,14 @@
 import { PickerColumn } from "@ionic/react";
+import i18next from "../i18n";
+
+const hhText = i18next.t('sandClock.hh') || 'h'
+const mmText = i18next.t('sandClock.mm') || 'm'
+const ssText = i18next.t('sandClock.ss') || 's'
 
 export const pickerTimeColumn: PickerColumn[] = [
   {
     name: "hh",
-    suffix: '时',
+    suffix: hhText,
     options: [
       { text: "00", value: 0 },
       { text: "01", value: 1 },
@@ -20,7 +25,7 @@ export const pickerTimeColumn: PickerColumn[] = [
   },
   {
     name: "mm",
-    suffix: '分',
+    suffix: mmText,
     options: [
       { text: "00", value: 0 },
       { text: "01", value: 1 },
@@ -86,7 +91,7 @@ export const pickerTimeColumn: PickerColumn[] = [
   },
   {
     name: "ss",
-    suffix: '秒',
+    suffix: ssText,
     options: [
       { text: "00", value: 0 },
       { text: "01", value: 1 },

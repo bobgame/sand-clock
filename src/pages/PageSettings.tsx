@@ -8,6 +8,7 @@ import {
 } from "@ionic/react";
 import { timerOutline } from "ionicons/icons";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { createUseStyles } from "react-jss";
 import { useHistory } from "react-router";
 import { SandClock } from "../components/SandClock";
@@ -16,9 +17,10 @@ import { bgColors, lineColors, sandColors } from "../data/colors";
 import { dbKey } from "../data/db-key";
 import { styles } from "./PageSettings.css";
 
-export const PageSettings: React.FC = (props) => {
+const PageSettings: React.FC = (props) => {
   const classes = createUseStyles(styles)();
   const history = useHistory();
+  const {t} = useTranslation()
 
   const [lineColor, setLineColor] = useState("#666");
   const [bgColor, setBgColor] = useState("#eee");
@@ -61,7 +63,7 @@ export const PageSettings: React.FC = (props) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>设置</IonTitle>
+          <IonTitle>{t('menu.settings')}</IonTitle>
           <IonButtons slot="end"
             onClick={() => history.push("/page/sand-clock")}
             style={{ padding: '10px' }}>
@@ -99,7 +101,7 @@ export const PageSettings: React.FC = (props) => {
           </div>
           <div className={classes.colorContent}>
             <div className={classes.lineColorContent}>
-              <h4>框架颜色</h4>
+              <h4>{t('settings.lineColorTitle')}</h4>
               <div className={classes.colorList}>
                 {lineColors.map((c, i) => {
                   return (
@@ -112,7 +114,7 @@ export const PageSettings: React.FC = (props) => {
               </div>
             </div>
             <div className={classes.bgColorContent}>
-              <h4>背景颜色</h4>
+              <h4>{t('settings.bgColorTitle')}</h4>
               <div className={classes.colorList}>
                 {bgColors.map((c, i) => {
                   return (
@@ -125,7 +127,7 @@ export const PageSettings: React.FC = (props) => {
               </div>
             </div>
             <div className={classes.sandColorContent}>
-              <h4>沙子颜色</h4>
+              <h4>{t('settings.sandColorTitle')}</h4>
               <div className={classes.colorList}>
                 {sandColors.map((c, i) => {
                   return (
@@ -144,3 +146,5 @@ export const PageSettings: React.FC = (props) => {
   );
 };
 
+
+export default PageSettings

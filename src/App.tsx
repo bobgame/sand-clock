@@ -1,12 +1,16 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactHashRouter } from '@ionic/react-router';
+import { lazy } from 'react';
+import { withTranslation } from 'react-i18next';
 import { Redirect, Route } from 'react-router-dom';
-import Menu from './components/Menu';
-import { PageAbout } from './pages/PageAbout';
-import PageSandClock from './pages/PageSandClock';
-import { PageSettings } from './pages/PageSettings';
+
+const Menu = lazy(() => import('./components/Menu'))
+const PageSandClock = lazy(() => import('./pages/PageSandClock'))
+const PageAbout = lazy(() => import('./pages/PageAbout'))
+const PageSettings = lazy(() => import('./pages/PageSettings'))
 
 setupIonicReact();
+
 
 const App: React.FC = () => {
   return (
@@ -35,4 +39,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default withTranslation()(App);

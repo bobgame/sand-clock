@@ -1,0 +1,31 @@
+{
+  "title": "Countdown - Sand clock",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "menu": {
+    "note": "Come on!",
+    "countdown": "Countdown",
+    "settings": "Settings",
+    "about": "About"
+  },
+  "sandClock": {
+    "startCountdown": "Start",
+    "stopCountdown": "Stop",
+    "customize": "Customize",
+    "minute": "min",
+    "hh": "h",
+    "mm": "m",
+    "ss": "s"
+  },
+  "settings": {
+    "lineColorTitle": "Line color",
+    "bgColorTitle": "Background color",
+    "sandColorTitle": "Sand color"
+  },
+  "about": {
+    "hello": "Hello, This is BobGame",
+    "desc1": "The hourglass is a learning artifact that is open source.",
+    "sourceTitle": "Open source link: ",
+    "versionTitle": "Version: "
+  }
+}

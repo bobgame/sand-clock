@@ -1,0 +1,31 @@
+{
+  "title": "倒计时-沙漏",
+  "cancel": "取消",
+  "confirm": "确认",
+  "menu": {
+    "note": "加油!",
+    "countdown": "倒计时",
+    "settings": "设置",
+    "about": "关于"
+  },
+  "sandClock": {
+    "startCountdown": "开始倒计时",
+    "stopCountdown": "停止倒计时",
+    "customize": "自定义",
+    "minute": "分钟",
+    "hh": "时",
+    "mm": "分",
+    "ss": "秒"
+  },
+  "settings": {
+    "lineColorTitle": "框架颜色",
+    "bgColorTitle": "背景颜色",
+    "sandColorTitle": "沙子颜色"
+  },
+  "about": {
+    "hello": "大家好，我是 BobGame",
+    "desc1": "这个沙漏是一个学习产物，已开源。",
+    "sourceTitle": "开源链接：",
+    "versionTitle": "版本号："
+  }
+}

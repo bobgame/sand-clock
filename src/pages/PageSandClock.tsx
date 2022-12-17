@@ -20,6 +20,8 @@ import { useScreenWakeLock } from 'screen-wake-lock';
 import { customTimes } from "../data/custom-times";
 import { settingsOutline } from "ionicons/icons";
 import { useHistory } from "react-router";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
 const audioNames = ["winter-1"];
 
@@ -57,7 +59,13 @@ const PageSandClock: React.FC = (props) => {
   const [sandColor, setSandColor] = useState("#44cef6");
   const [audioName, setAudioName] = useState("winter-1");
 
+  const { t } = useTranslation();
+
   useScreenWakeLock()
+
+  useEffect(()=>{
+    // i18n.changeLanguage('en');
+  },[])
 
   useEffect(() => {
     const cacheLineColor = localStorage.getItem(dbKey.lineColor);
@@ -174,11 +182,11 @@ const PageSandClock: React.FC = (props) => {
       showBackdrop: true,
       buttons: [
         {
-          text: "取消 X",
+          text: t('cancel') + " X",
           role: "cancel",
         },
         {
-          text: "确定 √",
+          text: t('confirm') + " √",
           handler: (value) => {
             setMaxTime(
               value.hh.value * 3600 + value.mm.value * 60 + value.ss.value
@@ -209,7 +217,7 @@ const PageSandClock: React.FC = (props) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>倒计时-沙漏</IonTitle>
+          <IonTitle>{t('title')}</IonTitle>
           <IonButtons slot="end"
             onClick={() => history.push("/page/settings")}
             style={{ padding: '10px' }}>
@@ -255,9 +263,9 @@ const PageSandClock: React.FC = (props) => {
           </div>
 
           <div style={{ textAlign: "center", marginTop: 20, marginBottom: 10 }}>
-            {!clockStatus && <IonButton style={{ margin: 10 }} size="large" onClick={customStartClock}>开始倒计时</IonButton>}
-            {clockStatus && <IonButton disabled={!stopButtonEnabled} style={{ margin: 10, width: '60%', }} size="large" onClick={customStopClock}>停止倒计时</IonButton>}
-            {!clockStatus && <IonButton disabled={clockStatus} style={{ margin: 10, marginLeft: 30 }} size="large" onClick={openPicker}>自定义</IonButton>}
+            {!clockStatus && <IonButton style={{ margin: 10 }} size="large" onClick={customStartClock}>{t('sandClock.startCountdown')}</IonButton>}
+            {clockStatus && <IonButton disabled={!stopButtonEnabled} style={{ margin: 10, width: '60%', }} size="large" onClick={customStopClock}>{t('sandClock.stopCountdown')}</IonButton>}
+            {!clockStatus && <IonButton disabled={clockStatus} style={{ margin: 10, marginLeft: 30 }} size="large" onClick={openPicker}>{t('sandClock.customize')}</IonButton>}
           </div>
 
 
