@@ -18,7 +18,7 @@ import { dbKey } from "../data/db-key";
 import { styles } from "./PageSettings.css";
 
 const PageSettings: React.FC = (props) => {
-  const classes = createUseStyles(styles)();
+  const classes = createUseStyles(styles)(); 
   const history = useHistory();
   const {t} = useTranslation()
 
@@ -77,7 +77,7 @@ const PageSettings: React.FC = (props) => {
       </IonHeader>
       <div className={classes.sandClockContent}>
         <div className={classes.settingContent}>
-          <div className={classes.settingContentLeft}>
+          <div className={classes.settingContentTop}>
             <div className={classes.SandClockBox}
               style={{
                 backgroundColor: bgColor,
@@ -97,6 +97,19 @@ const PageSettings: React.FC = (props) => {
                   maxTime: 20,
                 }}
               />
+            </div>
+            <div className={classes.sandColorContent}>
+              <h4>{t('settings.sandColorTitle')}</h4>
+              <div className={classes.colorList}>
+                {sandColors.map((c, i) => {
+                  return (
+                    <div className={classes.colorItem} key={`sand-color-key-${i}`}
+                      onClick={() => { changeSandColor(c) }}>
+                      <ColorWidget bgColor={c} />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
           <div className={classes.colorContent}>
@@ -120,19 +133,6 @@ const PageSettings: React.FC = (props) => {
                   return (
                     <div className={classes.colorItem} key={`bg-color-key-${i}`}
                       onClick={() => { changeBgColor(c) }}>
-                      <ColorWidget bgColor={c} />
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-            <div className={classes.sandColorContent}>
-              <h4>{t('settings.sandColorTitle')}</h4>
-              <div className={classes.colorList}>
-                {sandColors.map((c, i) => {
-                  return (
-                    <div className={classes.colorItem} key={`sand-color-key-${i}`}
-                      onClick={() => { changeSandColor(c) }}>
                       <ColorWidget bgColor={c} />
                     </div>
                   )

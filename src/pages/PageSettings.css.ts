@@ -1,4 +1,4 @@
-import { flexCenter, full, psa, psa0 } from "../common/styles/common.css";
+import { flexCenter, full, psa0 } from "../common/styles/common.css";
 
 export const styles = {
   sandClockContainer: {
@@ -13,49 +13,61 @@ export const styles = {
     backgroundColor: "#eee",
   },
   settingContent: {
-    display: "flex",
     width: "100vw",
     height: "calc(100vh - 60px)",
     backgroundColor: "#eee",
+    padding: '0 20px',
   },
-  settingContentLeft: {
+  settingContentTop: {
     extend: [flexCenter],
-    flex: "0 0 220px",
-    height: "100%",
+    height: "calc((100vh - 60px) / 2)",
   },
   SandClockBox: {
-    extend: [flexCenter, psa],
-    borderWidth: 20,
-    borderStyle: 'solid',
-    borderRadius: 10,
-    transform: 'scale(0.6)',
+    extend: [flexCenter],
+    width: '50%',
+    height: "100%",
+    transform: 'scale(0.45)',
   },
   colorContent: {
     width: "100%",
-    height: "100%",
-    paddingTop: '2%',
-    paddingRight: '5%',
+    height: "calc((100vh - 60px) / 2)",
+    display: 'flex',
   },
   lineColorContent: {
-    width: "100%",
-    height: "30%",
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    width: "50%",
+    height: "100%",
   },
   bgColorContent: {
-    width: "100%",
-    height: "30%",
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    width: "50%",
+    height: "100%",
   },
   sandColorContent: {
-    width: "100%",
-    height: "30%",
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    width: "50%",
+    height: "100%",
   },
   colorList: {
     display: 'flex',
-    flexWrap: 'wrap'
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    paddingLeft: '20px',
+    paddingRight: '20px',
   },
   colorItem: {
     width: '23%',
     height: 40,
-    margin: 5,
+    margin: '5px 2px',
     border: '2px solid #fff',
     boxShadow: '0 0 6px rgba(0,0,0,.3)'
   },
